@@ -1,3 +1,4 @@
+//todo: Change limit later 
 fetch('https://api.quotable.io/quotes/random?limit=10')
 .then(response => {
   if (!response.ok) {
