@@ -1,35 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect} from 'react';
+import {Box} from '@chakra-ui/react';
+import QuoteGrid from './Components/QuoteGrid.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [quotes, setQuotes] = useState(new Array(499).fill(0).map((_, index) => ({ id: index + 1 }))); // Generating 28 items
+
+  const getRandomSpanColumn = () => {
+    return Math.floor(Math.random() * (3 - 1) + 1);
+  };
+  const getRandomSpanRow = () => {
+    return Math.floor(Math.random() * (30 - 10) + 10);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Box w="100vw" h="100vh" overflow="auto" p={4}>
+      <QuoteGrid/>
+    </Box>
+  );
 }
 
-export default App
+export default App;
