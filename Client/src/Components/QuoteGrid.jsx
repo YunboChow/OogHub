@@ -40,7 +40,7 @@ function QuoteGrid() {
           {quotes.map((item, index) => (
             <GridItem key={index} colSpan={getRandomSpanColumn(index)} rowSpan={getRandomSpanRow(index)} bg="blue.500" borderRadius={'2em'} >
               <Flex flexDir={'column'} justifyContent='center' alignItems='center' h='100%' w='100%' position='relative' padding={'5%'}>
-                <Text fontSize={'20px'}>{item.content}</Text>
+                <Text color={'white'} fontSize={'20px'}>{item.content}</Text>
                 <Text fontSize={'15px'}>{item.author}</Text>
                 <IconButton icon={<AddIcon />} bgColor={'blue.500'} position='absolute' bottom={3} right={3} />
               </Flex>
