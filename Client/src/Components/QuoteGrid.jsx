@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Grid, GridItem, Box, Flex, Text, Button, IconButton } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
 import { quoteApi } from '../api/quoteAPI';
+import SaveQuoteButton from './SaveQuote';
 
 function QuoteGrid() {
   const { getQuotes } = quoteApi();
@@ -42,7 +43,7 @@ function QuoteGrid() {
               <Flex flexDir={'column'} justifyContent='center' alignItems='center' h='100%' w='100%' position='relative' padding={'5%'}>
                 <Text color={'white'} fontSize={'20px'}>{item.content}</Text>
                 <Text fontSize={'15px'}>{item.author}</Text>
-                <IconButton icon={<AddIcon />} bgColor={'blue.500'} position='absolute' bottom={3} right={3} />
+                <SaveQuoteButton quote={item}/>
               </Flex>
             </GridItem> 
           ))} 
