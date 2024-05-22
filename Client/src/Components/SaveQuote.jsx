@@ -5,27 +5,43 @@ import React, {useState} from "react";
 
 
 function SaveQuoteButton({ quote }){
+
     const [faved, setFaved] = useState(false);
+    const savedQuotes = JSON.parse(localStorage.getItem('savedQuotes')) || [];
+   
+    const load = ()=>{
+        let QIndex = findQuoteIndex(quote,savedQuotes);
+        if(QIndex === -1){
+            setFaved(true);
+        }else{
+            setFaved(false);
+        }
+    }
+       
+    
 
     const saveQuote = (quote) => {
-        const savedQuotes = JSON.parse(localStorage.getItem('savedQuotes')) || [];
-        if(!checkIfQuoteIsSaved(quote,savedQuotes)){
+        const index = findQuoteIndex(quote,savedQuotes);
+        if(index === -1){
             setFaved(true);
             const updatedSavedQuotes = [...savedQuotes, quote];
             localStorage.setItem('savedQuotes', JSON.stringify(updatedSavedQuotes));
         }else{
             setFaved(false);
+            const updatedDeletedQuotes = [...savedQuotes];
+            updatedDeletedQuotes.splice(index,1);
+            localStorage.setItem('savedQuotes', JSON.stringify(updatedDeletedQuotes));
         }
         console.log(faved)
       };
 
-      function checkIfQuoteIsSaved(quote,savedQuotes){
+      function findQuoteIndex(quote,savedQuotes){
         for(let i = 0; i < savedQuotes.length; i++){
             if(savedQuotes[i]._id === quote._id){
-                return true;
+                return i;
             }
         }
-        return false;
+        return -1;
   }
 
   return (
