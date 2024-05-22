@@ -1,5 +1,5 @@
 
-const apiUrl = "https://en.wikipedia.org/w/rest.php/v1/search/page?q=churchill";
+const apiUrl = "https://en.wikipedia.org/w/rest.php/v1/search/page?q=";
 
 export const WikiApi = () => {
   const fetchWikiData = async (name) => {
