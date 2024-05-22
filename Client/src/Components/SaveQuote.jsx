@@ -2,7 +2,7 @@ import { IconButton } from '@chakra-ui/react';
 import { AddIcon, StarIcon } from '@chakra-ui/icons';
 import React, {useState} from "react";
 
-
+//todo fixa check on loading if quote is saved
 
 function SaveQuoteButton({ quote }){
 
