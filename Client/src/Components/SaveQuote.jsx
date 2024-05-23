@@ -2,8 +2,6 @@ import { IconButton } from '@chakra-ui/react';
 import { AddIcon, StarIcon } from '@chakra-ui/icons';
 import React, {useState, useEffect} from "react";
 
-//todo fixa check on loading if quote is saved
-
 function SaveQuoteButton({ quote }){
 
     const [faved, setFaved] = useState(false);
