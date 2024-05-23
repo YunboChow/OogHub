@@ -1,20 +1,32 @@
-import { useState, useEffect} from 'react';
-import {Box} from '@chakra-ui/react';
+import { useState, useEffect } from 'react';
+import { Box } from '@chakra-ui/react';
 import QuoteGrid from './Components/QuoteGrid.jsx';
+import Nav from './Components/Nav.jsx';
+import { quoteApi } from './api/quoteAPI';
 
 function App() {
-  const [quotes, setQuotes] = useState(new Array(499).fill(0).map((_, index) => ({ id: index + 1 }))); // Generating 28 items
+  const { getQuotes } = quoteApi();
+  const [loading, setLoading] = useState(false);
+  const [quotes, setQuotes] = useState();
 
-  const getRandomSpanColumn = () => {
-    return Math.floor(Math.random() * (3 - 1) + 1);
-  };
-  const getRandomSpanRow = () => {
-    return Math.floor(Math.random() * (30 - 10) + 10);
-  };
+  useEffect(() => {
+    if (!quotes) {
+      retieveQuotes();
+    }
+  }, [quotes]);
+
+  const retieveQuotes = async () => {
+    const items = await getQuotes();
+    await setQuotes(items);
+    setLoading(true);
+  }
 
   return (
-    <Box w="100vw" h="100vh" overflow="auto" p={4}>
-      <QuoteGrid/>
+    <Box w="100vw" h="100vh" overflow="auto" p={4} >
+      <Nav refresh={retieveQuotes}></Nav>
+      {loading && ( 
+        <QuoteGrid quotes={quotes}/>
+      )}
     </Box>
   );
 }

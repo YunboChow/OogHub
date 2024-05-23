@@ -1,26 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Grid, GridItem, Box, Flex, Text, Button, IconButton } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
-import { quoteApi } from '../api/quoteAPI';
 import SaveQuoteButton from './SaveQuote';
 
-function QuoteGrid() {
-  const { getQuotes } = quoteApi();
-  const [loading, setLoading] = useState(false);
+function QuoteGrid({quotes}) {
+
   const [counter, setCounter] = useState(20);
-  const [quotes, setQuotes] = useState(); // Generating 28 items
 
- useEffect(() => {
-    if (!quotes) {
-      retieveQuotes();
-    }
- }, [quotes]);
-
-  const retieveQuotes = async () =>{
-    const items = await getQuotes();
-    await setQuotes(items);
-    setLoading(true);
-  }
+ 
 
   const getRandomSpanColumn = (index) => {
     if (index % 6 === 0 || (index + 1) % 12 === 0) {
@@ -36,7 +23,6 @@ function QuoteGrid() {
   };
   return (
     <>
-      {loading && (
         <Grid templateColumns={'repeat(6,1fr)'} templateRows={'repeat(6,1fr)'} gap={4}>
           {quotes.map((item, index) => (
             <GridItem key={index} colSpan={getRandomSpanColumn(index)} rowSpan={getRandomSpanRow(index)} bg="blue.500" borderRadius={'2em'} >
@@ -48,7 +34,6 @@ function QuoteGrid() {
             </GridItem> 
           ))} 
         </Grid>
-      )}
     </>
   );
 }
