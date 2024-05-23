@@ -50,8 +50,8 @@ function SaveQuoteButton({ quote }){
   return (
     <IconButton
       icon={<StarIcon/> }
-      color={faved === true ? 'yellow.300' : 'grey.600' }
-      bgColor={'blue.500'}
+      color={faved === true ? 'yellow.300' : '#D1D1D1' }
+      bgColor={'transparent'}
       position='absolute'
       bottom={3}
       right={3}

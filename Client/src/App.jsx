@@ -22,8 +22,8 @@ function App() {
   }
 
   return (
-    <Box w="100vw" h="100vh" overflow="auto" p={4} >
-      <Nav refresh={retieveQuotes}></Nav>
+    <Box w='100vw' h='100vh' overflow='auto' background='radial-gradient(circle, #25273D, #010316)'>
+      <Nav refresh={retieveQuotes} setQuotes={setQuotes}></Nav>
       {loading && ( 
         <QuoteGrid quotes={quotes}/>
       )}
