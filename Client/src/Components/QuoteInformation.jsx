@@ -1,13 +1,17 @@
 import { IconButton } from '@chakra-ui/react';
 import { AddIcon, StarIcon,InfoIcon } from '@chakra-ui/icons';
 import React, {useState, useEffect} from "react";
+import { WikiApi } from '../api/wikiAPI';
 
+function MoreInformationButton({ quote }){
+    const { fetchWikiData } = WikiApi();
 
-function moreInfromationButton({ quote }){
-
-
-    const getInfoAboutQuote = (quote) => {
-      
+    const getInfoAboutQuote = async (quote) => {
+        const wikiAuthor = quote.authorSlug;
+        const authorInfo = await fetchWikiData(wikiAuthor);
+        console.log(authorInfo);
+        const authorDescription = authorInfo.pages[0].description;
+        const authorURL = authorInfo.pages[0].thumbnail.url;
       };
 
       
@@ -15,16 +19,16 @@ function moreInfromationButton({ quote }){
   return (
     <IconButton
       icon={<InfoIcon/> }
-      color={faved === true ? 'yellow.300' : '#D1D1D1' }
+      color={'white'}
       bgColor={'transparent'}
       position='absolute'
-      bottom={3}
-      right={3}
-      onClick={() => saveQuote(quote)}
+      bottom={2}
+      left={3}
+      onClick={() => getInfoAboutQuote(quote)}
     />
   );
 
 }
 
 
-export default moreInfromationButton;
+export default MoreInformationButton;
