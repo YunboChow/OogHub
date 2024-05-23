@@ -1,6 +1,6 @@
 import { IconButton } from '@chakra-ui/react';
 import { AddIcon, StarIcon } from '@chakra-ui/icons';
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 //todo fixa check on loading if quote is saved
 
@@ -11,14 +11,16 @@ function SaveQuoteButton({ quote }){
    
     const load = ()=>{
         let QIndex = findQuoteIndex(quote,savedQuotes);
-        if(QIndex === -1){
+        if(QIndex !== -1){
             setFaved(true);
         }else{
             setFaved(false);
         }
     }
        
-    
+    useEffect(() => {
+        load();
+    });
 
     const saveQuote = (quote) => {
         const index = findQuoteIndex(quote,savedQuotes);
