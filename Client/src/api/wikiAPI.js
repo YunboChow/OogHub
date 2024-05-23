@@ -10,6 +10,7 @@ export const WikiApi = () => {
         throw new Error('Network response was not ok');
       }
       const items = await response.json();
+      return items;
       console.log(items[0]);
     }catch(error){
       console.log(error);
