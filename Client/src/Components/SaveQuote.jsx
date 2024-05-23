@@ -7,9 +7,9 @@ import React, {useState, useEffect} from "react";
 function SaveQuoteButton({ quote }){
 
     const [faved, setFaved] = useState(false);
-    const savedQuotes = JSON.parse(localStorage.getItem('savedQuotes')) || [];
    
     const load = ()=>{
+        const savedQuotes = JSON.parse(localStorage.getItem('savedQuotes')) || [];
         let QIndex = findQuoteIndex(quote,savedQuotes);
         if(QIndex !== -1){
             setFaved(true);
@@ -23,6 +23,7 @@ function SaveQuoteButton({ quote }){
     });
 
     const saveQuote = (quote) => {
+        const savedQuotes = JSON.parse(localStorage.getItem('savedQuotes')) || [];
         const index = findQuoteIndex(quote,savedQuotes);
         if(index === -1){
             setFaved(true);
