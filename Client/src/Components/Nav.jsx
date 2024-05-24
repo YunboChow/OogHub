@@ -3,7 +3,7 @@ import { SunIcon, MoonIcon } from '@chakra-ui/icons';
 import React, { useState, useEffect } from "react";
 
 function Nav({refresh,setQuotes, setRefreshedQuotes}) {
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode, setDarkMode] = useState(true);
     return (
         <>
             <Box bgColor={'#BEAFFC'} w={'100%'} minH={'40px'} h="5%" mb={'1%'} bgGradient={'linear(to-r,blue.400,purple.400,,pink.700)'}>
