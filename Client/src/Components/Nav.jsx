@@ -10,7 +10,7 @@ function Nav({refresh,setQuotes, setRefreshedQuotes}) {
                 <Flex flexDir={'row'} justifyContent={'end'} alignItems={'center'} h="100%">
                 <Text alignContent={'center'} h={'100%'} fontSize={'30px'} ml={'10px'} width={'100%'}>OOGHUB</Text>
                     {/* TODO: REMOVE THIS BUTTON AND MAKE TEXT CLICKABLE */}
-                    <Button mr={'40px'} onClick={()=>setQuotes(JSON.parse(localStorage.getItem('previousQuotes')) || [])}>HOMEHOME</Button>
+                    <Button mr={'40px'} onClick={()=>setQuotes(JSON.parse(localStorage.getItem('previousQuotes')) || [])}  bgColor={'transparent'}>HOME</Button>
                 
                     <Button mr={'40px'} onClick={()=>refresh()}>Refresh</Button>
                     <Button mr={'40px'} onClick={()=>{setQuotes(JSON.parse(localStorage.getItem('savedQuotes')) || []); setRefreshedQuotes(false)}}>Liked</Button>
