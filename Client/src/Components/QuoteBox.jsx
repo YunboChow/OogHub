@@ -1,10 +1,9 @@
-"use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Flex, Text } from "@chakra-ui/react";
 import SaveQuoteButton from './SaveQuote';
 import MoreInformationButton from './QuoteInformation';
 import { AnimatePresence, motion } from "framer-motion";
-import { CanvasRevealEffect } from "./ui/canvas-reveal-effect"; // Adjust the path as necessary
+import { CanvasRevealEffect } from "./ui/canvas-reveal-effect"; 
 
 function QuoteBox({ quote }) {
     const [hovered, setHovered] = useState(false);
@@ -23,39 +22,37 @@ function QuoteBox({ quote }) {
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             _hover={{
-                transition: 'ease-in-out 0.2s',
-                transform: 'scale(1.019)',
                 cursor: 'pointer'
             }}
+            overflow="hidden" 
+            zIndex={hovered ? 10 : 1}
         >
-            <MoreInformationButton quote={quote} />
-            <Text color={'white'} fontSize={'20px'}>{quote.content}</Text>
-            <Text color={'grey'} fontSize={'15px'}>- {quote.author}</Text>
-            <SaveQuoteButton quote={quote} />
-
             <AnimatePresence>
                 {hovered && (
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="h-full w-full absolute inset-0"
+                        className="h-full w-full absolute inset-0 z-0" 
                     >
                         <CanvasRevealEffect
-                            animationSpeed={5}
-                            containerClassName="bg-transparent"
-                            colors={[
-                                [59, 130, 246],
-                                [139, 92, 246],
-                            ]}
-                            opacities={[0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.4, 0.4, 0.4, 1]}
-                            dotSize={2}
+                            animationSpeed={0.4}
+                            opacities={[0.3, 0.3, 0.3, 0.5, 0.5, 0.5, 0.8, 0.8, 0.8, 1]}
+                            colors={[[0, 255, 255]]}
+                            dotSize={3}
+                            showGradient={true}
                         />
                     </motion.div>
                 )}
             </AnimatePresence>
+            
+            
+            <MoreInformationButton quote={quote} style={{ zIndex: 20 }} />
+            <Text color={'white'} fontSize={'20px'} style={{ position: 'absolute', zIndex: 20 }}>{quote.content}</Text>
+            <Text color={'grey'} fontSize={'15px'} style={{  zIndex: 20 }}>- {quote.author}</Text>
+            <SaveQuoteButton quote={quote} style={{  zIndex: 20 }} />
         </Flex>
-    );
+    )
 }
 
 export default QuoteBox;
