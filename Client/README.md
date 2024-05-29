@@ -34,3 +34,6 @@ To run the applicaiton:
 ```
 $ pnpm run dev
 ```
+
+## Why React was chosen over the other frameworks
+- Insert from document
