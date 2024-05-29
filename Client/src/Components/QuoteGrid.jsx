@@ -12,7 +12,8 @@ function QuoteGrid({ quotes }) {
     '2xl': '1536px',
   }
   const theme = extendTheme({ breakpoints })
-  const variant = useBreakpointValue({ base: true, lg: false, },)
+  const screenSize = useBreakpointValue({ base: true, lg: false, },)
+  
 
   const getRandomSpanColumn = (index) => {
     if (index % 6 === 0 || (index + 1) % 12 === 0) {
@@ -30,7 +31,7 @@ function QuoteGrid({ quotes }) {
     <>
       <Grid templateColumns={{ base: 'repeat(2,1fr)', lg: 'repeat(6,1fr)' }} templateRows={'repeat(6,1fr)'} gap={4} p={4}>
         {quotes.map((item, index) => (
-          <QuoteBox quote={item} index={index} mobile={variant} />
+          <QuoteBox quote={item} index={index} mobile={screenSize} />
         ))}
       </Grid>
     </>
