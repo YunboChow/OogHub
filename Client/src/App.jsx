@@ -3,7 +3,7 @@ import { Box } from '@chakra-ui/react';
 import QuoteGrid from './Components/QuoteGrid.jsx';
 import Nav from './Components/Nav.jsx';
 import { quoteApi } from './api/quoteAPI';
-import img from './assets/The_Oog.png';
+import logo from '/assets/TheOog.png';
 import { motion} from 'framer-motion';
 
 function App() {
@@ -48,7 +48,7 @@ function App() {
               bottom: 4,
               left: 0,
               right: 0,
-              backgroundImage: `url(${img})`,
+              backgroundImage: `url(${logo})`,
               backgroundSize: 'cover',
               zIndex: 21,
             }}

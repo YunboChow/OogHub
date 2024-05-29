@@ -3,7 +3,6 @@ import { Grid, GridItem, Box, Flex, Text, Button, IconButton, position, Img } fr
 import { AddIcon } from '@chakra-ui/icons';
 import SaveQuoteButton from './SaveQuote';
 import MoreInformationButton from './QuoteInformation';
-import img from '../assets/The_Oog.png';
 import { motion, useInView, useAnimation } from 'framer-motion';
 
 function QuoteBox({ quote, index }) {
