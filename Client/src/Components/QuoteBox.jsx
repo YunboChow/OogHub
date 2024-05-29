@@ -86,5 +86,4 @@ function QuoteBox({ quote, index }) {
 
 }
 
-
 export default QuoteBox;
