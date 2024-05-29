@@ -8,6 +8,7 @@ export const quoteApi = () => {
         throw new Error('Network response was not ok');
       }
       const items = await response.json();
+      console.log('items',items);
       return items;
     }catch(error){
       console.log(error);
