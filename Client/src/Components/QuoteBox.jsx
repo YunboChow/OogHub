@@ -5,7 +5,7 @@ import SaveQuoteButton from './SaveQuote';
 import MoreInformationButton from './QuoteInformation';
 import { motion, useInView, useAnimation } from 'framer-motion';
 
-function QuoteBox({ quote, index }) {
+function QuoteBox({ quote, index, mobile }) {
     const ref = useRef(null);
     const gridItemInView = useInView(ref);
     const controls = useAnimation();
@@ -20,12 +20,18 @@ function QuoteBox({ quote, index }) {
 
 
     const getRandomSpanColumn = (index) => {
+
+        if (mobile) return 1
+
+
         if (index % 6 === 0 || (index + 1) % 12 === 0) {
             return 2;
         }
         return 1
     };
     const getRandomSpanRow = (index) => {
+        if (mobile) return 20
+
         if (index === 18 || index === 6 || index === 9 || index === 21) {
             return 20;
         }

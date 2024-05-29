@@ -1,10 +1,10 @@
-import { useState, useEffect} from 'react';
-import { Box } from '@chakra-ui/react';
+import { useState, useEffect } from 'react';
+import { Box, Grid } from '@chakra-ui/react';
 import QuoteGrid from './Components/QuoteGrid.jsx';
 import Nav from './Components/Nav.jsx';
 import { quoteApi } from './api/quoteAPI';
 import logo from '/assets/TheOog.png';
-import { motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 
 function App() {
   const { getQuotes } = quoteApi();
@@ -30,33 +30,33 @@ function App() {
   }
 
   return (
-    <Box w='100vw' h='100vh' overflow='auto' background='radial-gradient(circle, #25273D, #010316)'  zIndex={22} >
-      <Nav refresh={retieveQuotes} setQuotes={setQuotes} setRefreshedQuotes={setRefreshedQuotes}/>
-      {loading && (
-        <>
-          <motion.div
-            variants={{
-              hidden: { left: '5%' },
-              visible: { left: '100%' },
-            }}
-            initial='hidden'
-            animate='visible'
-            transition={{ duration: 4, delay: 1 }}
-            style={{
-              position: 'absolute',
-              top: 4,
-              bottom: 4,
-              left: 0,
-              right: 0,
-              backgroundImage: `url(${logo})`,
-              backgroundSize: 'cover',
-              zIndex: 21,
-            }}
-          />
-          <QuoteGrid quotes={quotes} />
-        </>
-      )}
-    </Box>
+      <Box w='100vw' h='100vh' overflow='auto' background='radial-gradient(circle, #25273D, #010316)' zIndex={22} >
+        <Nav refresh={retieveQuotes} setQuotes={setQuotes} setRefreshedQuotes={setRefreshedQuotes} />
+        {loading && (
+          <>
+            <motion.div
+              variants={{
+                hidden: { left: '5%' },
+                visible: { left: '100%' },
+              }}
+              initial='hidden'
+              animate='visible'
+              transition={{ duration: 4, delay: 1 }}
+              style={{
+                position: 'absolute',
+                top: 4,
+                bottom: 4,
+                left: 0,
+                right: 0,
+                backgroundImage: `url(${logo})`,
+                backgroundSize: 'cover',
+                zIndex: 21,
+              }}
+            />
+            <QuoteGrid quotes={quotes} />
+          </>
+        )}
+      </Box>
   );
 }
 
