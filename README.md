@@ -59,8 +59,8 @@ Both technologies support server-side rendering and client-side rendering [4]. H
 In the end, React was considered more advantageous for us because it is a smaller project where the simplicity and flexibility of React outweighed the characteristics of Angular.
 
 ### Sources
-- [1](https://www.statista.com/statistics/1124699/worldwide-developer-survey-most-used-frameworks-web/)
-- [2](https://dev.to/codewithshahan/react-or-vue-which-js-framework-is-best-25on)
-- [3](https://radixweb.com/blog/react-vs-vue)
-- [4](https://radixweb.com/blog/react-vs-angular#ARDifference)
-- [5](https://www.keitaro.com/insights/2023/07/12/dom-vs-virtual-dom-understanding-the-differences/)
+- [1] L. S. Vailshery, "Most used web frameworks among developers 2023," Statista, 2024. [Online]. Available: (https://www.statista.com/statistics/1124699/worldwide-developer-survey-most-used-frameworks-web/) (Accessed: 2024-05-20).
+- [2] Programming with Shahan, "React or Vue, which JS framework is best?," DEV Community, Mar. 2, 2024. [Online]. Available: (https://dev.to/codewithshahan/react-or-vue-which-js-framework-is-best-25on) (Accessed: 2024-05-20).
+- [3] N. Raval, "React vs Vue: Comparison of the Best JavaScript Frameworks at a Glance!" RADIX, [Online], Dec. 18, 2023. Available: (https://radixweb.com/blog/react-vs-vue) (Accessed: 2024-05-20).
+- [4] N. Raval, "React vs Angular: Which JS Framework to choose for Front-end Development?," RADIX, [Online], Apr. 1, 2024. Available: (https://radixweb.com/blog/react-vs-angular#ARDifference) (Accessed: 2024-05-20).
+- [5] H. Petkovski, "DOM vs. Virtual DOM – Understanding the Differences," KEITARO, [Online], Jul. 12, 2023. Available: (https://www.keitaro.com/insights/2023/07/12/dom-vs-virtual-dom-understanding-the-differences/) (Accessed: 2024-05-20).
