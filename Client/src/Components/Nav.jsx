@@ -43,10 +43,13 @@ function Nav({ refresh, setQuotes, setRefreshedQuotes }) {
                         <Flex flexDir={'row'} justifyContent={'end'} alignItems={'center'} h="100%">
                             <Image src={window.location.origin + '/assets/TheOog.png'} alt="Oog" paddingLeft={"10px"} maxHeight="50px" onClick={() => setQuotes(JSON.parse(localStorage.getItem('previousQuotes')) || [])} cursor={"pointer"} />
                             <Text alignContent={'center'} h={'100%'} fontSize={'30px'} ml={'10px'} width={'100%'}>OOGHUB</Text>
-                            <Button as={motion.div} variants={button} initial="rest" whileHover="hover" whileTap="pressed" mr={'40px'} onClick={() => setQuotes(JSON.parse(localStorage.getItem('previousQuotes')) || [])} bgColor={'transparent'}>HOME</Button>
+                            <Button as={motion.div} variants={button} initial="rest" whileHover="hover" whileTap="pressed" mr={'40px'} onClick={() => setQuotes(JSON.parse(localStorage.getItem('previousQuotes')) || [])} >HOME</Button>
                             <Button as={motion.div} variants={button} initial="rest" whileHover="hover" whileTap="pressed" mr={'40px'} onClick={() => refresh()}>Refresh</Button>
                             <Button as={motion.div} variants={button} initial="rest" whileHover="hover" whileTap="pressed" mr={'40px'} onClick={() => { setQuotes(JSON.parse(localStorage.getItem('savedQuotes')) || []); setRefreshedQuotes(false) }}>Liked</Button>
-                            <IconButton onClick={() => setDarkMode(!darkMode)} mr={'20px'} icon={darkMode === false ? <SunIcon /> : <MoonIcon />} />
+                            {/* 
+                            TODO: fixa dark mode/light
+                            <IconButton onClick={() => setDarkMode(!darkMode)} mr={'20px'} icon={darkMode === false ? <SunIcon /> : <MoonIcon />} /> 
+                            */}
                         </Flex>
                     </Box>
                 </>
