@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Box, Grid } from '@chakra-ui/react';
+import { Box,useBreakpointValue } from '@chakra-ui/react';
 import QuoteGrid from './Components/QuoteGrid.jsx';
 import Nav from './Components/Nav.jsx';
 import { quoteApi } from './api/quoteAPI';
@@ -11,6 +11,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [quotes, setQuotes] = useState();
   const [refreshedQuotes, setRefreshedQuotes] = useState(true);
+  const screenSize = useBreakpointValue({ base: '-35%', lg: '0%', },)
 
   useEffect(() => {
     if (!quotes) {
@@ -34,9 +35,10 @@ function App() {
         <Nav refresh={retieveQuotes} setQuotes={setQuotes} setRefreshedQuotes={setRefreshedQuotes} />
         {loading && (
           <>
+          {console.log(screenSize)}
             <motion.div
               variants={{
-                hidden: { left: '5%' },
+                hidden: { left: screenSize },
                 visible: { left: '100%' },
               }}
               initial='hidden'

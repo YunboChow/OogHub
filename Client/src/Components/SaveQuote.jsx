@@ -1,6 +1,6 @@
+import {useState, useEffect} from "react";
 import { IconButton } from '@chakra-ui/react';
-import { AddIcon, StarIcon } from '@chakra-ui/icons';
-import React, {useState, useEffect} from "react";
+import { StarIcon } from '@chakra-ui/icons';
 
 function SaveQuoteButton({ quote }){
 

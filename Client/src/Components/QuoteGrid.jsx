@@ -1,17 +1,8 @@
-import { Grid, extendTheme, useBreakpointValue, GridItem, Box, Flex, Text, Button, IconButton, background, SelectField } from '@chakra-ui/react';
+import { Grid, useBreakpointValue} from '@chakra-ui/react';
 import QuoteBox from './QuoteBox';
 
 
 function QuoteGrid({ quotes }) {
-  const breakpoints = {
-    base: '0px',
-    sm: '320px',
-    md: '768px',
-    lg: '960px',
-    xl: '1200px',
-    '2xl': '1536px',
-  }
-  const theme = extendTheme({ breakpoints })
   const screenSize = useBreakpointValue({ base: true, lg: false, },)
   
 

@@ -1,15 +1,17 @@
-import { useState, useEffect, useRef } from 'react';
-import { Grid, GridItem, Box, Flex, Text, Button, IconButton, position, Img } from '@chakra-ui/react';
-import { AddIcon } from '@chakra-ui/icons';
+import {useEffect, useRef } from 'react';
+import {GridItem,useBreakpointValue,Flex, Text,} from '@chakra-ui/react';
 import SaveQuoteButton from './SaveQuote';
 import MoreInformationButton from './QuoteInformation';
 import { motion, useInView, useAnimation } from 'framer-motion';
+import MoreInformationButtonMobile from './QuoteInformationMobile';
 
 function QuoteBox({ quote, index, mobile }) {
     const ref = useRef(null);
     const gridItemInView = useInView(ref);
     const controls = useAnimation();
     const slide = useAnimation();
+    const screenSize = useBreakpointValue({base: true,lg:false});
+    
     useEffect(() => {
         if (gridItemInView) {
             controls.start('visible');
@@ -20,10 +22,7 @@ function QuoteBox({ quote, index, mobile }) {
 
 
     const getRandomSpanColumn = (index) => {
-
         if (mobile) return 1
-
-
         if (index % 6 === 0 || (index + 1) % 12 === 0) {
             return 2;
         }
@@ -60,8 +59,7 @@ function QuoteBox({ quote, index, mobile }) {
                         cursor: 'pointer'
                     }}
                 >
-
-                    <MoreInformationButton quote={quote} />
+                    {screenSize ? ( <MoreInformationButtonMobile quote={quote} /> ) : ( <MoreInformationButton quote={quote} />)}
                     <Text color={'white'} fontSize={'20px'}>{quote.content}</Text>
                     <Text color={'grey'} fontSize={'15px'}>- {quote.author}</Text>
                     <SaveQuoteButton quote={quote} />

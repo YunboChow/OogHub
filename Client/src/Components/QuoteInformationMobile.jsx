@@ -12,13 +12,13 @@ import {
   Text,
   Img,
   Spinner,
-  HStack,
   VStack,
+  useBreakpointValue
 } from '@chakra-ui/react';
 import { InfoIcon } from '@chakra-ui/icons';
 import { WikiApi } from '../api/wikiAPI';
 
-function MoreInformationButton({ quote }) {
+function MoreInformationButtonMobile({ quote }) {
   const { fetchWikiData } = WikiApi();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [authorInfo, setAuthorInfo] = useState(null);
@@ -54,14 +54,14 @@ function MoreInformationButton({ quote }) {
           <ModalBody >
             {authorInfo ? (
               <>
-                <HStack>
-                  <Img h={'400px'} src={authorInfo.url} />
+                <VStack>
+                  <Img h={'200px'} src={authorInfo.url} />
                   <VStack>
                     <Text as={'i'}>{quote.content}</Text>
                     <Text as={'b'}>- {quote.author}</Text>
                     <Text mt={'5%'}>{authorInfo.authorDes}</Text>
                   </VStack>
-                </HStack>
+                </VStack>
 
               </>
             ) : (
@@ -90,4 +90,4 @@ function MoreInformationButton({ quote }) {
 }
 
 
-export default MoreInformationButton;
+export default MoreInformationButtonMobile;
