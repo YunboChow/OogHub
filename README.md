@@ -1,4 +1,4 @@
-# OogHub
+# [OogHub](https://ooghub.vercel.app/)
 
 This application is insipred by the wisdom of Master Oogway and attempts to portray even a fraction of his wisdom by providing an easy and user-friendly platform to see random quotes on demand. 
 It also offers the functionality to save quotes and to get more information about the authors of the quotes. 
@@ -22,7 +22,7 @@ If you do not have npm the full installation guide can be found [here](https://p
 
 ### Run Application using pnpm
 
-From the root folder of this application run the following:
+From the client folder of this application run the following:
 
 To install the dependencies:
 
