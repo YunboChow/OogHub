@@ -31,8 +31,11 @@ function Nav({ refresh, setQuotes, setRefreshedQuotes }) {
                             <div style={{ width: '80%' }}>
                                 <Image src={window.location.origin + '/assets/TheOog.png'} alt="Oog" paddingLeft={"10px"} maxHeight="50px" onClick={() => setQuotes(JSON.parse(localStorage.getItem('previousQuotes')) || [])} cursor={"pointer"} />
                             </div>
-                            <IconButton m={'1%'} onClick={() => setDarkMode(!darkMode)} mr={'20px'} icon={darkMode === false ? <SunIcon /> : <MoonIcon />} />
                             <BurgerPanel refresh={refresh} setQuotes={setQuotes} setRefreshedQuotes={setRefreshedQuotes} />
+                           {/*  
+                            TODO: fixa dark mode/light
+                           <IconButton m={'1%'} onClick={() => setDarkMode(!darkMode)} mr={'20px'} icon={darkMode === false ? <SunIcon /> : <MoonIcon />} /> 
+                           */}
                         </Flex>
                     </Box>
 
